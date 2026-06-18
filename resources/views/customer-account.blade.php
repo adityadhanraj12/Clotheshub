@@ -170,6 +170,16 @@
       </div>
     </form>
 
+    <div class="text-center mt-3 mb-4">
+      <form action="{{ route('customerAccount.delete') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">
+          <i class="fa fa-trash"></i> Delete Account
+        </button>
+      </form>
+    </div>
+
   </div>
   </div>
   </div>

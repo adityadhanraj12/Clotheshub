@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/customerAccount', [ProfileController::class, 'index'])->name('customerAccount');
     Route::post('/customerAccount/update', [ProfileController::class, 'update'])->name('customerAccount.update');
+    Route::delete('/customerAccount', [ProfileController::class, 'destroy'])->name('customerAccount.delete');
 });
 Route::post('/customer-profile-update', [ProfileController::class, 'update'])->name('customerProfile.update')->middleware('auth');
 Route::get('/customer-orders', [RouteController::class, 'customerOrders'])->name('customer.orders');
