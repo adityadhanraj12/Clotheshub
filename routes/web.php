@@ -71,3 +71,13 @@ Route::post('/checkout3-submit', [RouteController::class, 'checkout3Submit'])->n
 Route::post('/checkout2/save', [CheckoutController::class, 'saveDeliveryMethod'])->name('checkout2.save');
 Route::get('/customerOrders/{id}', [RouteController::class, 'customerOrderDetails'])->name('customerOrderDetails');
 Route::get('/search', [ProductController::class, 'search'])->name('search');
+
+Route::get('/run-migrations', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        return 'Database migrated and seeded successfully!';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
