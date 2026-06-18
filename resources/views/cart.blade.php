@@ -54,6 +54,18 @@
       </div>
     </div>
     <div class="container">
+        @if($errors->any())
+            <div class="alert alert-danger mb-3">
+                @foreach($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            </div>
+        @endif
+        @if(session('success'))
+            <div class="alert alert-success mb-3">
+                {{ session('success') }}
+            </div>
+        @endif
       <div class="CTAs d-flex align-items-center justify-content-center justify-content-md-end">
         <a href="{{ route('category') }}" class="btn btn-template-outlined wide mr-md-3 mb-2 mb-md-0">
           Continue Shopping
