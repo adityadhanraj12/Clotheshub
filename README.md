@@ -1,7 +1,7 @@
 # 🛍️ ClothesHub - Fashion E-Commerce Platform
 
 <p align="center">
-  <img src=".public/img/homepage.png" alt="ClothesHub Homepage" width="100%">
+  <img src="./public/img/homepage.png" alt="ClothesHub Homepage" width="100%">
 </p>
 
 <p align="center">
@@ -113,7 +113,7 @@ ClothesHub
 ## Home Page
 
 <p align="center">
-  <img src="./screenshots/homepage.png" width="100%">
+  <img src="./public/img/homepage.png" width="100%">
 </p>
 
 ---
