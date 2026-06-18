@@ -52,18 +52,14 @@
                             <input type="text" name="card_number" maxlength="16" class="form-control"
                               value="{{ old('card_number') }}">
                           </div>
-                          <div class="form-group col-md-4">
+                          <div class="form-group col-md-6">
                             <label>Expiry Date</label>
                             <input type="text" name="expiry_date" placeholder="MM/YY" maxlength="5" class="form-control"
                               value="{{ old('expiry_date') }}">
                           </div>
-                          <div class="form-group col-md-4">
+                          <div class="form-group col-md-6">
                             <label>CVV</label>
                             <input type="text" name="cvv" class="form-control" maxlength="4" value="{{ old('cvv') }}">
-                          </div>
-                          <div class="form-group col-md-4">
-                            <label>Postal Code</label>
-                            <input type="text" name="zip" class="form-control" maxlength="6" value="{{ old('zip') }}">
                           </div>
                         </div>
                       </div>

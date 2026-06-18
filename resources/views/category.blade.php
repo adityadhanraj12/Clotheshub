@@ -172,13 +172,26 @@
                                     </li>
                                 </ul>
                                 <p>{{ $product->description }}</p>
-                                <form method="POST" action="{{ route('cart.add') }}">
+                                <form method="POST" action="{{ route('cart.add') }}" class="d-flex align-items-center flex-wrap">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <label>Quantity</label>
-                                    <input type="number" name="quantity" value="{{ old('product_id') == $product->id ? old('quantity') : 1 }}" min="1"
-                                        style="width:60px; border-radius:20px; padding-left:12px;">
-                                    <button type="submit" class="btn btn-template wide">Add to Cart</button>
+                                    
+                                    <div class="d-inline-flex align-items-center mr-3 mb-2">
+                                        <span class="mr-3" style="font-weight: 600; color: #555;">Quantity</span>
+                                        <div class="quantity-selector d-inline-flex align-items-center" style="border: 1.5px solid #E0E0E0; border-radius: 25px; padding: 2px 6px; background: #fff; transition: border-color 0.2s; height: 38px; box-sizing: border-box;" onmouseover="this.style.borderColor='#9055A2'" onmouseout="this.style.borderColor='#E0E0E0'">
+                                            <button type="button" class="border-0 bg-transparent" style="cursor: pointer; padding: 0 10px; font-weight: bold; color: #666; font-size: 1.2em; outline: none; line-height: 1;" onmouseover="this.style.color='#9055A2'" onmouseout="this.style.color='#666'" onclick="let input = this.parentNode.querySelector('input[type=number]'); if (input.value > 1) { input.value = parseInt(input.value) - 1; }">-</button>
+                                            <input type="number" name="quantity" value="{{ old('product_id') == $product->id ? old('quantity') : 1 }}" min="1" max="100" readonly style="width: 35px; border: 0; text-align: center; font-weight: 700; color: #333; font-size: 1.05em; outline: none; background: transparent; -moz-appearance: textfield; pointer-events: none;">
+                                            <style>
+                                                input[type=number]::-webkit-inner-spin-button, 
+                                                input[type=number]::-webkit-outer-spin-button { 
+                                                    -webkit-appearance: none; 
+                                                    margin: 0; 
+                                                }
+                                            </style>
+                                            <button type="button" class="border-0 bg-transparent" style="cursor: pointer; padding: 0 10px; font-weight: bold; color: #666; font-size: 1.2em; outline: none; line-height: 1;" onmouseover="this.style.color='#9055A2'" onmouseout="this.style.color='#666'" onclick="let input = this.parentNode.querySelector('input[type=number]'); if (input.value < 100) { input.value = parseInt(input.value) + 1; }">+</button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-template mb-2" style="border-radius: 25px; padding: 6px 25px; height: 38px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; font-weight: 600;">Add to Cart</button>
                                 </form>
                                 @if($errors->any() && old('product_id') == $product->id)
                                     <div class="alert alert-danger mt-2" style="background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; padding: 10px; border-radius: 5px; font-size: 14px;">

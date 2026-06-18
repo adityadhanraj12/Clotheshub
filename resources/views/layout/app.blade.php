@@ -233,9 +233,9 @@
                           @csrf
                           @method('DELETE')
 
-                          <button type="submit" class="delete border-0 bg-transparent">
+                          <button type="submit" class="delete border-0 bg-transparent" style="cursor: pointer; color: #888; padding: 6px; border-radius: 50%; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease-in-out; outline: none; margin-left: 10px;" onmouseover="this.style.color='#dc3545'; this.style.backgroundColor='#ffebee';" onmouseout="this.style.color='#888'; this.style.backgroundColor='transparent';">
 
-                            <i class="fa fa-trash-o"></i>
+                            <i class="fa fa-trash-o" style="font-size: 1.15em;"></i>
 
                           </button>
 

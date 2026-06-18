@@ -247,7 +247,6 @@ class RouteController extends Controller
             ],
 
             'cvv' => 'exclude_unless:payment_method,card|required|digits_between:3,4',
-            'zip' => 'exclude_unless:payment_method,card|required|numeric',
 
             'upi_id' => [
                 'exclude_unless:payment_method,upi',
@@ -270,9 +269,6 @@ class RouteController extends Controller
 
             'cvv.required' => 'Please enter CVV.',
             'cvv.digits_between' => 'CVV must be 3 or 4 digits.',
-
-            'zip.required' => 'Please enter postal code.',
-            'zip.numeric' => 'Postal code must contain only numbers.',
 
             'upi_id.required' => 'Please enter UPI ID.',
             'upi_id.regex' => 'Please enter a valid UPI ID (example: aditya@upi).',

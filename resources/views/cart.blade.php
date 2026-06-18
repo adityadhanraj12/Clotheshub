@@ -40,8 +40,10 @@
                     <div class="col-1 text-center">
                       <a href="{{ route('cart.remove', $cart->id) }}"
                         onclick="event.preventDefault(); document.getElementById('delete-cart-{{ $cart->id }}').submit();"
-                        class="btn btn-danger btn-sm">
-                        <i class="fa fa-trash"></i>
+                        style="color: #888; width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.2s ease-in-out;"
+                        onmouseover="this.style.color='#dc3545'; this.style.backgroundColor='#ffebee';"
+                        onmouseout="this.style.color='#888'; this.style.backgroundColor='transparent';">
+                        <i class="fa fa-trash" style="font-size: 1.25em;"></i>
                       </a>
                     </div>
                   </div>
