@@ -166,15 +166,14 @@
 
         <div class="col-sm-12 text-center">
           <button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Save changes </button>
+          <div style="margin-top: 10px;">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAccountModal">
+              <i class="fa fa-trash"></i> Delete Account
+            </button>
+          </div>
         </div>
       </div>
     </form>
-
-    <div class="text-center mt-3 mb-4">
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAccountModal">
-        <i class="fa fa-trash"></i> Delete Account
-      </button>
-    </div>
 
     <!-- Delete Account Confirmation Modal -->
     <div id="deleteAccountModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="background: rgba(0,0,0,0.6); z-index: 9999;">
