@@ -72,7 +72,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/customerOrders')
+        return redirect()->route('index')
             ->with('success', 'Registration successful.');
     }
     public function login(Request $request)
@@ -92,7 +92,7 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->route('customerOrders');
+            return redirect()->route('index');
         }
 
         return back()
