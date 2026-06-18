@@ -63,6 +63,26 @@
                             <strong>Delivery Method:</strong>
                             {{ $order->delivery_method }}
                         </p>
+                        @php
+                            $subtotal = 0;
+                            foreach($order->orderDetails as $item) {
+                                $subtotal += ($item->product->base_price ?? 0) * $item->quantity;
+                            }
+                            $shippingCost = $subtotal * 0.02;
+                            $tax = $subtotal * 0.10;
+                        @endphp
+                        <p>
+                            <strong>Order Subtotal:</strong>
+                            ₹{{ number_format($subtotal, 2) }}
+                        </p>
+                        <p>
+                            <strong>Shipping and handling (2%):</strong>
+                            ₹{{ number_format($shippingCost, 2) }}
+                        </p>
+                        <p>
+                            <strong>Tax (10%):</strong>
+                            ₹{{ number_format($tax, 2) }}
+                        </p>
                         <p>
                             <strong>Total Amount:</strong>
                             ₹{{ number_format($order->total_price, 2) }}

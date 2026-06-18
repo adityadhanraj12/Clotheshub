@@ -36,10 +36,14 @@ class CheckoutController extends Controller
             ->where('address_type', 'shipping')
             ->first();
         DB::beginTransaction();
-        $total = 0;
+        $subtotal = 0;
         foreach ($carts as $cart) {
-            $total += ($cart->product->base_price ?? 0) * $cart->quantity;
+            $subtotal += ($cart->product->base_price ?? 0) * $cart->quantity;
         }
+        $shippingCost = $subtotal * 0.02;
+        $tax = $subtotal * 0.10;
+        $total = $subtotal + $shippingCost + $tax;
+
         $order = Order::create([
             'order_id' => 'ORD-' . strtoupper(uniqid()),
             'user_id' => $userId,

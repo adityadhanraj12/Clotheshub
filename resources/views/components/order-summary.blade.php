@@ -3,14 +3,14 @@
         <h6 class="text-uppercase">Order Summary</h6>
         <p>Shipping and additional costs are calculated based on values you have entered</p>
         @php
-            $shipping = 0;
             $subtotal = 0;
             if (isset($carts)) {
                 $subtotal = $carts->sum(function ($cart) {
                     return $cart->quantity * ($cart->product->base_price ?? 0);
                 });
             }
-            $tax = 0;
+            $shipping = $subtotal * 0.02;
+            $tax = $subtotal * 0.10;
             $total = $subtotal + $shipping + $tax;
         @endphp
         <ul class="order-menu list-unstyled">

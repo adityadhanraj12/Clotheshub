@@ -99,13 +99,14 @@
                 <li class="d-flex justify-content-between"><span>Order Subtotal
                   </span><strong>₹{{ number_format($subtotal, 2) }}</strong></li>
                 <li class="d-flex justify-content-between"><span>Shipping and handling</span>@php
-                  $shipping = 0;
+                  $shipping = $subtotal * 0.02;
+                  $tax = $subtotal * 0.10;
                 @endphp
                   <strong>₹{{ number_format($shipping, 2) }}</strong>
                 </li>
-                <li class="d-flex justify-content-between"><span>Tax</span><strong>₹0.00</strong></li>
+                <li class="d-flex justify-content-between"><span>Tax</span><strong>₹{{ number_format($tax, 2) }}</strong></li>
                 <li class="d-flex justify-content-between"><span>Total</span><strong class="text-primary price-total">
-                    ₹{{ number_format($subtotal + $shipping, 2) }} </strong></li>
+                    ₹{{ number_format($subtotal + $shipping + $tax, 2) }} </strong></li>
               </ul>
             </div>
           </div>
