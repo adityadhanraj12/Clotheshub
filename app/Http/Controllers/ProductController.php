@@ -23,7 +23,8 @@ class ProductController extends Controller
         $search = $request->search;
 
         $products = Product::where('name', 'LIKE', "%{$search}%")
-            ->paginate(12);
+            ->paginate(12)
+            ->withQueryString();
 
         $categories = [];
         $brands = [];
