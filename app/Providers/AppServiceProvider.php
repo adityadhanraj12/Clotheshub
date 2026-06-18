@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
 
-        View::composer('*', function ($view) {
+        View::composer('layout.app', function ($view) {
 
             $cartItems = Cart::with('product')
                 ->where(function ($query) {
