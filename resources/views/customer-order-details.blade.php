@@ -102,15 +102,15 @@
             </div>
         </div>
         <div class="text-center mt-4 d-flex justify-content-center align-items-center flex-column flex-sm-row">
-            @if($order->status === 'pending')
-                <button type="button" class="btn btn-danger wide cancel-order-btn" data-toggle="modal" data-target="#cancelOrderModal" style="border-radius: 20px; padding: 10px 30px; font-weight: bold; margin-right: 15px; text-transform: uppercase; letter-spacing: 0.05em;">
-                    Cancel Order
-                </button>
-            @endif
-            <a href="{{ route('customerOrders') }}" class="btn btn-template-outlined wide prev back-orders-btn" style="border-radius: 20px; padding: 10px 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em;">
+            <a href="{{ route('customerOrders') }}" class="btn btn-template-outlined wide prev back-orders-btn" style="border-radius: 20px; padding: 10px 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; @if($order->status === 'pending') margin-right: 15px; @endif">
                 <i class="fa fa-angle-left"></i>
                 Back to Orders
             </a>
+            @if($order->status === 'pending')
+                <button type="button" class="btn btn-danger wide cancel-order-btn" data-toggle="modal" data-target="#cancelOrderModal" style="border-radius: 20px; padding: 10px 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em;">
+                    Cancel Order
+                </button>
+            @endif
         </div>
 
         @if($order->status === 'pending')
