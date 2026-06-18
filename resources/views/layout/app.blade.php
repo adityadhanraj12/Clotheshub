@@ -317,15 +317,15 @@
             <p>Discover the latest fashion trends with ClothesHub. We offer premium quality clothing for men and women
               at affordable prices, ensuring style, comfort, and confidence with every purchase.</p>
             <ul class="social-menu list-inline">
-              <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a>
+              <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;" title="twitter"><i class="fa fa-twitter"></i></a>
               </li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i
+              <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;" title="facebook"><i
                     class="fa fa-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i
+              <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;" title="instagram"><i
                     class="fa fa-instagram"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i
+              <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;" title="pinterest"><i
                     class="fa fa-pinterest"></i></a></li>
-              <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a>
+              <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;" title="vimeo"><i class="fa fa-vimeo"></i></a>
               </li>
             </ul>
           </div>

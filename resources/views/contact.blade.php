@@ -103,11 +103,11 @@
 
             <div class="social">
               <ul class="list-inline">
-                <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-behance"></i></a></li>
-                <li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;"><i class="fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;"><i class="fa fa-behance"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void(0)" style="pointer-events: none; cursor: default;"><i class="fa fa-pinterest"></i></a></li>
               </ul>
             </div>
           </div>
