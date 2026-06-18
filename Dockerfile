@@ -26,8 +26,9 @@ COPY . .
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Set permissions
-RUN chmod -R 775 storage bootstrap/cache
+# Set correct permissions so Apache (www-data) can read and write files
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 775 storage bootstrap/cache
 
 # Runtime command to bind Apache to Render's dynamic $PORT and start the server
 CMD sed -i "s/Listen 80/Listen $PORT/g" /etc/apache2/ports.conf && \
