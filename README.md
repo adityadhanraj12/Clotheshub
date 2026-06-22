@@ -10,6 +10,12 @@ ClothesHub is an industry-grade, feature-rich fashion e-commerce web application
 
 ---
 
+## 🌐 Live Demo
+
+🔗 **Website:** [https://clotheshub-cl0e.onrender.com](https://clotheshub-cl0e.onrender.com)
+
+---
+
 ## 📖 Key Project Features
 
 ### 🛒 E-Commerce & Cart Engine
@@ -135,34 +141,150 @@ erDiagram
     USERS ||--o{ ORDERS : places
     USERS ||--o{ CARTS : manages
     USERS ||--o{ USERS_ADDRESS : saves
-    PRODUCTS ||--o{ CARTS : contains
-    PRODUCTS ||--o{ ORDER_DETAILS : references
+    USERS ||--o{ REVIEWS : writes
+    
+    CATEGORIES ||--o{ COLLECTIONS : contains
+    COLLECTIONS ||--o{ PRODUCTS : categorizes
+    BRANDS ||--o{ PRODUCTS : manufactures
+    
+    PRODUCTS ||--o{ PRICES : has-price-variants
+    SIZES ||--o{ PRICES : defines-size-variant
+    PRODUCTS ||--o| ADDITIONAL_INFORMATIONS : details
+    PRODUCTS ||--o{ REVIEWS : receives
+    PRODUCTS ||--o{ CARTS : added-to
+    PRODUCTS ||--o{ ORDER_DETAILS : included-in
+    
     ORDERS ||--|{ ORDER_DETAILS : contains
     
     USERS {
-        int id PK
-        string name
+        bigint id PK
+        string first_name
+        string last_name
         string email
         string password
+        string phone_number
+        string profile_image
+        datetime created_at
+        datetime updated_at
     }
-    ORDERS {
-        int id PK
-        string order_id
-        int user_id FK
-        decimal total_price
-        string status
-        json user_invoice_address
-        json user_shipping_address
-    }
+    
     USERS_ADDRESS {
-        int id PK
-        int user_id FK
+        bigint id PK
+        bigint user_id FK
         string address_type
+        string first_name
+        string last_name
+        string email_address
         string street
         string city
-        string state
         string postal_code
+        string state
         string phone_number
+        datetime created_at
+        datetime updated_at
+    }
+    
+    CATEGORIES {
+        bigint id PK
+        string category
+        datetime created_at
+        datetime updated_at
+    }
+    
+    COLLECTIONS {
+        bigint id PK
+        bigint category_id FK
+        string collection
+        datetime created_at
+        datetime updated_at
+    }
+    
+    SIZES {
+        bigint id PK
+        string size
+        datetime created_at
+        datetime updated_at
+    }
+    
+    BRANDS {
+        bigint id PK
+        string brand
+        datetime created_at
+        datetime updated_at
+    }
+    
+    PRODUCTS {
+        bigint id PK
+        bigint collection_id FK
+        bigint brand_id FK
+        string name
+        text description
+        string base_price
+        string image_url
+        datetime created_at
+        datetime updated_at
+    }
+    
+    PRICES {
+        bigint id PK
+        bigint product_id FK
+        bigint size_id FK
+        string price
+        datetime created_at
+        datetime updated_at
+    }
+    
+    ADDITIONAL_INFORMATIONS {
+        bigint id PK
+        bigint product_id FK
+        text material
+        text care
+        text fit
+        datetime created_at
+        datetime updated_at
+    }
+    
+    REVIEWS {
+        bigint id PK
+        bigint product_id FK
+        bigint user_id FK
+        int rating
+        text review
+        datetime created_at
+        datetime updated_at
+    }
+    
+    CARTS {
+        bigint id PK
+        bigint product_id FK
+        bigint user_id FK
+        string session_id
+        int quantity
+        datetime created_at
+        datetime updated_at
+    }
+    
+    ORDERS {
+        bigint id PK
+        string order_id
+        bigint user_id FK
+        string status
+        decimal total_price
+        string delivery_method
+        string payment_method
+        json user_invoice_address
+        json user_shipping_address
+        datetime created_at
+        datetime updated_at
+    }
+    
+    ORDER_DETAILS {
+        bigint id PK
+        bigint order_id FK
+        bigint product_id FK
+        int quantity
+        datetime created_at
+        datetime updated_at
     }
 ```
 
@@ -180,12 +302,5 @@ This application is optimized for deployment on cloud platforms like **Render**,
 ## 👨‍💻 Developer & Authorship
 
 ### Aditya Dhanraj
-- 🎓 **Education**: B.E. Computer Science Engineering, Chandigarh University
-- 🔗 **GitHub**: [adityadhanraj12](https://github.com/adityadhanraj12)
+- ✉️ **Email**: [adityadhanraj404@gmail.com](mailto:adityadhanraj404@gmail.com)
 - 🔗 **LinkedIn**: [Aditya Dhanraj](https://www.linkedin.com/in/aditya-dhanraj555)
-
----
-
-## 📜 License
-
-This project is open-source and licensed under the [MIT License](LICENSE).
