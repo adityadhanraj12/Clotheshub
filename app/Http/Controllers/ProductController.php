@@ -12,7 +12,6 @@ class ProductController extends Controller
         $product->load([
             'collection.category',
             'brand',
-            'prices.size',
             'additionalInformation'
         ]);
 

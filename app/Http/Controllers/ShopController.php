@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
-use App\Models\Size;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -14,14 +13,8 @@ class ShopController extends Controller
     {
         $query = Product::with([
             'collection.category',
-            'brand',
-            'prices'
+            'brand'
         ]);
-        if ($request->filled('size')) {
-            $query->whereHas('prices', function ($q) use ($request) {
-                $q->where('size_id', $request->size);
-            });
-        }
         if ($request->brands) {
             $query->whereIn('brand_id', $request->brands);
         }
@@ -51,20 +44,17 @@ class ShopController extends Controller
             ->withCount('products')
             ->get();
         $brands = Brand::withCount('products')->get();
-        $sizes = Size::all();
         return view('category', compact(
             'products',
             'categories',
-            'brands',
-            'sizes'
+            'brands'
         ));
     }
     public function show(Product $product)
     {
         $product->load([
             'collection.category',
-            'brand',
-            'prices.size'
+            'brand'
         ]);
         return view('detail', compact('product'));
     }

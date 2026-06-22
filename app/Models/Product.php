@@ -21,10 +21,7 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
-    public function prices()
-    {
-        return $this->hasMany(Price::class);
-    }
+
     public function additionalInformation()
     {
         return $this->hasOne(AdditionalInformation::class, 'product_id');

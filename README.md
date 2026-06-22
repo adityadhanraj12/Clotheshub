@@ -147,8 +147,6 @@ erDiagram
     COLLECTIONS ||--o{ PRODUCTS : categorizes
     BRANDS ||--o{ PRODUCTS : manufactures
     
-    PRODUCTS ||--o{ PRICES : has-price-variants
-    SIZES ||--o{ PRICES : defines-size-variant
     PRODUCTS ||--o| ADDITIONAL_INFORMATIONS : details
     PRODUCTS ||--o{ REVIEWS : receives
     PRODUCTS ||--o{ CARTS : added-to
@@ -199,13 +197,7 @@ erDiagram
         datetime updated_at
     }
     
-    SIZES {
-        bigint id PK
-        string size
-        datetime created_at
-        datetime updated_at
-    }
-    
+
     BRANDS {
         bigint id PK
         string brand
@@ -225,15 +217,7 @@ erDiagram
         datetime updated_at
     }
     
-    PRICES {
-        bigint id PK
-        bigint product_id FK
-        bigint size_id FK
-        string price
-        datetime created_at
-        datetime updated_at
-    }
-    
+
     ADDITIONAL_INFORMATIONS {
         bigint id PK
         bigint product_id FK
